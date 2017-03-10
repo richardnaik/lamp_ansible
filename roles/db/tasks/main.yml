@@ -1,0 +1,17 @@
+---
+# install mariadb
+
+- name: add MariaDB repo
+  template:
+    src: templates/mariadb.repo.j2
+    dest: /etc/yum.repos.d/mariadb.repo
+
+- name: install MariaDB
+  yum: name={{ item }} state=latest
+  with_items:
+    - MariaDB-server
+    - MariaDB-client
+
+- service:
+    name: mysql
+    state: started

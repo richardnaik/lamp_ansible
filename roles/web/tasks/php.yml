@@ -1,0 +1,21 @@
+---
+# install php packages
+
+- name: install php packages
+  yum: name={{ item }} state=latest
+  with_items:
+    - php71u-common
+    - php71u-devel
+    - php71u-fpm
+    - php71u-opcache
+    - php71u-mysqlnd
+    - php71u-cli
+    - php71u-intl
+    - php71u-pdo
+    - php71u-gd
+    - php71u-json
+    - php71u-pecl-xdebug
+    - php71u-xml
+    - php71u-xmlrpc
+    - php71u-mbstring
+    - php71u-mcrypt
