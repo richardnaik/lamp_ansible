@@ -1,0 +1,1 @@
+Ansible playbook that configures a LAMP server. Meant for personal/learning use only. Only tested on CentOS 7.
