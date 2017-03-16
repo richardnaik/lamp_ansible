@@ -1,5 +1,8 @@
 ---
-# install php packages
+
+- name: enable ius repo
+  yum:
+    name: https://centos7.iuscommunity.org/ius-release.rpm
 
 - name: install php packages
   yum: name={{ item }} state=latest
