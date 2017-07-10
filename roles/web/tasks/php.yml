@@ -22,3 +22,8 @@
     - php71u-xmlrpc
     - php71u-mbstring
     - php71u-mcrypt
+
+# The same example, but using symbolic modes equivalent to 0644
+- template:
+    src: php.conf.j2
+    dest: /etc/httpd/conf.d/php.conf
