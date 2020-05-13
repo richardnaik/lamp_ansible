@@ -7,23 +7,21 @@
 - name: install php packages
   yum: name={{ item }} state=latest
   with_items:
-    - php71u-common
-    - php71u-devel
-    - php71u-fpm
-    - php71u-opcache
-    - php71u-mysqlnd
-    - php71u-cli
-    - php71u-intl
-    - php71u-pdo
-    - php71u-gd
-    - php71u-json
-    - php71u-pecl-xdebug
-    - php71u-xml
-    - php71u-xmlrpc
-    - php71u-mbstring
-    - php71u-mcrypt
+    - php73-common
+    - php73-devel
+    - php73-fpm
+    - php73-opcache
+    - php73-mysqlnd
+    - php73-cli
+    - php73-intl
+    - php73-pdo
+    - php73-gd
+    - php73-json
+    - php73-pecl-xdebug
+    - php73-xml
+    - php73-xmlrpc
+    - php73-mbstring
 
-# The same example, but using symbolic modes equivalent to 0644
 - template:
     src: php.conf.j2
     dest: /etc/httpd/conf.d/php.conf

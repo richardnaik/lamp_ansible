@@ -13,5 +13,5 @@
     - MariaDB-client
 
 - service:
-    name: mysql
+    name: mariadb
     state: started
