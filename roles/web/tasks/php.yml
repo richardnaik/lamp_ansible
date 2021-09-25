@@ -1,26 +1,28 @@
 ---
-
-- name: enable ius repo
+- name: enable remi repo
   yum:
-    name: https://centos7.iuscommunity.org/ius-release.rpm
+    name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+
+- name: enable php module
+  command: dnf module enable -y php:remi-8.0
 
 - name: install php packages
-  yum: name={{ item }} state=latest
+  dnf: name={{ item }} state=latest
   with_items:
-    - php73-common
-    - php73-devel
-    - php73-fpm
-    - php73-opcache
-    - php73-mysqlnd
-    - php73-cli
-    - php73-intl
-    - php73-pdo
-    - php73-gd
-    - php73-json
-    - php73-pecl-xdebug
-    - php73-xml
-    - php73-xmlrpc
-    - php73-mbstring
+    - php80-php-common
+    - php80-php-devel
+    - php80-php-fpm
+    - php80-php-opcache
+    - php80-php-mysqlnd
+    - php80-php-cli
+    - php80-php-intl
+    - php80-php-pdo
+    - php80-php-gd
+    - php80-php-json
+    - php80-php-pecl-xdebug
+    - php80-php-xml
+    - php80-php-xmlrpc
+    - php80-php-mbstring
 
 - template:
     src: php.conf.j2
