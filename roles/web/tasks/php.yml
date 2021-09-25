@@ -9,6 +9,7 @@
 - name: install php packages
   dnf: name={{ item }} state=latest
   with_items:
+    - mod_fcgid
     - php80-php-common
     - php80-php-devel
     - php80-php-fpm
