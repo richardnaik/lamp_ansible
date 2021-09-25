@@ -4,11 +4,7 @@
 - name: install helper packages
   yum: name={{ item }} state=latest
   with_items:
-    - python-pip
     - vim
     - git
     - wget
     - htop
-    
-- name: install aws cli
-  command: pip install awscli
