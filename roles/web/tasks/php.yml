@@ -27,3 +27,7 @@
 - service:
     name: php-fpm
     state: started
+
+- template:
+    src: php.conf.j2
+    dest: /etc/httpd/conf.d/php.conf

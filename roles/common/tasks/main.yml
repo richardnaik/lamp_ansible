@@ -10,7 +10,7 @@
     - htop
 
 # partition and mount the storage volumes
-- name: Create a new ext4 primary partition
+- name: Create a new xfs primary partition
   community.general.parted:
     device: /dev/nvme1n1
     number: 1
@@ -22,7 +22,7 @@
     fstype: xfs
     dev: /dev/nvme1n1p1
 
-- name: Recursively remove directory
+- name: Create mount point
   file:
     path: /mnt/storage
     state: directory
