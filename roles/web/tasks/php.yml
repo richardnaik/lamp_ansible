@@ -9,22 +9,21 @@
 - name: install php packages
   dnf: name={{ item }} state=latest
   with_items:
-    - mod_fcgid
-    - php80-php-common
-    - php80-php-devel
-    - php80-php-fpm
-    - php80-php-opcache
-    - php80-php-mysqlnd
-    - php80-php-cli
-    - php80-php-intl
-    - php80-php-pdo
-    - php80-php-gd
-    - php80-php-json
-    - php80-php-pecl-xdebug
-    - php80-php-xml
-    - php80-php-xmlrpc
-    - php80-php-mbstring
+    - php-common
+    - php-devel
+    - php-fpm
+    - php-opcache
+    - php-mysqlnd
+    - php-cli
+    - php-intl
+    - php-pdo
+    - php-gd
+    - php-json
+    - php-pecl-xdebug
+    - php-xml
+    - php-xmlrpc
+    - php-mbstring
 
-- template:
-    src: php.conf.j2
-    dest: /etc/httpd/conf.d/php.conf
+- service:
+    name: php-fpm
+    state: started

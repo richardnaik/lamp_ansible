@@ -8,3 +8,27 @@
     - git
     - wget
     - htop
+
+# partition and mount the storage volumes
+- name: Create a new ext4 primary partition
+  community.general.parted:
+    device: /dev/nvme1n1
+    number: 1
+    state: present
+    fs_type: xfs
+
+- name: Create an xfs filesystem on /dev/nvme1n1p1
+  filesystem:
+    fstype: xfs
+    dev: /dev/nvme1n1p1
+
+- name: Recursively remove directory
+  file:
+    path: /mnt/storage
+    state: directory
+
+- mount:
+    fstype: xfs
+    src: /dev/nvme1n1p1
+    path: /mnt/storage
+    state: mounted

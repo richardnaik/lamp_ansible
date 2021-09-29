@@ -1,9 +1,23 @@
 ---
 # install apache
 
-- name: install apache
-  yum: name=httpd state=latest
+- name: install httpd packages
+  dnf: name={{ item }} state=latest
+  with_items:
+    - httpd
+    - httpd-tools
+    - mod_fcgid
+    - mod_ssl
 
 - service:
     name: httpd
     state: started
+
+- name: link web directory to storage volume
+  ansible.builtin.file:
+    src: /mnt/storage
+    dest: /var/www/html
+    owner: root
+    group: root
+    force: yes
+    state: link
