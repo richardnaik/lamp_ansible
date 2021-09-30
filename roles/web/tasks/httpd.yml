@@ -6,11 +6,11 @@
   with_items:
     - httpd
     - httpd-tools
-    - mod_fcgid
     - mod_ssl
 
 - service:
     name: httpd
+    enabled: yes
     state: started
 
 - name: link web directory to storage volume

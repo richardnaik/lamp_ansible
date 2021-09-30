@@ -26,6 +26,7 @@
 
 - service:
     name: php-fpm
+    enabled: yes
     state: started
 
 - template:
