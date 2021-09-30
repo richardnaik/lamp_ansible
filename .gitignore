@@ -5,3 +5,4 @@
 aws-hosts
 hosts
 inventories*
+vars*

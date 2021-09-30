@@ -16,3 +16,18 @@
     name: mariadb
     enabled: yes
     state: started
+
+- name: Create data directory on storage volume
+  file:
+    path: /mnt/storage/data
+    state: directory
+
+- name: Set selinux context on data directory
+  community.general.sefcontext:
+    target: /mnt/storage/data
+    setype: mysqld_db_t
+    reload: yes
+    state: present
+
+- name: apply selinux file context
+  command: restorecon -irv /mnt/storage/data

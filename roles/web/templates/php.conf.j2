@@ -1,6 +1,6 @@
 # Set the FPM handler in apache
 <FilesMatch \.php$>
-  SetHandler "proxy:fcgi://127.0.0.1:9000"
+  SetHandler "proxy:unix:/run/php-fpm/www.sock|fcgi://./"
 </FilesMatch>
 
 # set the proper index precedence

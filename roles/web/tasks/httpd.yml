@@ -13,11 +13,26 @@
     enabled: yes
     state: started
 
+- name: Create web folder on storage volume
+  file:
+    path: /mnt/storage/web
+    state: directory
+
 - name: link web directory to storage volume
-  ansible.builtin.file:
-    src: /mnt/storage
+  file:
+    src: /mnt/storage/web
     dest: /var/www/html
     owner: root
     group: root
     force: yes
     state: link
+
+- name: Set selinux context on symlinked directory
+  community.general.sefcontext:
+    target: /mnt/storage/web
+    setype: httpd_sys_content_t
+    reload: yes
+    state: present
+
+- name: apply selinux file context
+  command: restorecon -irv /mnt/storage/web
