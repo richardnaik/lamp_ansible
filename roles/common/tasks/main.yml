@@ -10,7 +10,7 @@
     - htop
     - unzip
     - net-tools
-
+    
 # partition and mount the storage volumes
 - name: Create a new xfs primary partition
   community.general.parted:

@@ -3,6 +3,8 @@
 - name: common
   hosts: all
   become: true
+  vars_files:
+    - vars/vars.yml
 
   roles:
     - common
@@ -10,6 +12,8 @@
 - name: web
   hosts: web
   become: true
+  vars_files:
+    - vars/vars.yml
 
   roles:
     - web
@@ -17,6 +21,8 @@
 - name: db
   hosts: db
   become: true
+  vars_files:
+    - vars/vars.yml
 
   roles:
     - db

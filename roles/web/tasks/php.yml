@@ -1,4 +1,9 @@
 ---
+- name: apply remi repo key
+  rpm_key:
+    state: present
+    key: https://rpms.remirepo.net/RPM-GPG-KEY-remi2018
+
 - name: enable remi repo
   yum:
     name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
