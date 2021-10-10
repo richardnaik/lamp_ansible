@@ -28,6 +28,8 @@
     - php-xml
     - php-xmlrpc
     - php-mbstring
+    - php-pecl-imagick
+    - php-pecl-zip
 
 - service:
     name: php-fpm
