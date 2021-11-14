@@ -35,3 +35,5 @@
     name: php-fpm
     enabled: yes
     state: started
+  notify:
+    - restart apache
